@@ -59,13 +59,17 @@ public class NumberRing {
         if (size == 0) {
             this.tail = new Node(n, null, null);
             tail.setNext(tail);// links back to itself
+            tail.setPre(tail);
             //System.out.println("hi");
             size++;
         } else {
              
             Node newest= new Node(n, tail.getNext(),tail);
             tail.setNext(newest);
+            newest.setPre(tail);
             size++;
+              System.out.println("tail"+ tail.data+"tail.getpre "+tail.getpre().data);
+            
         }
     }
     public void Append(int n){
@@ -96,5 +100,13 @@ public class NumberRing {
              ref=ref.next;
           }
               return out;
+      }
+     public void rotate(){
+          if (tail != null)// if empty do nothing
+          tail=tail.getNext();// the old head becomes the tail 
+      }
+     public void rotateBack(){
+          if (tail != null)// if empty do nothing
+          tail=tail.getpre();// the old head becomes the tail 
       }
 }
