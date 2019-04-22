@@ -23,7 +23,7 @@ public class COSC489_PT_Kdriley0 {
         String input = "";
 
         while (true) {
-            System.out.println(nr.toString());
+           // System.out.println(nr.toString());
             Scanner scan = new Scanner(System.in);
             System.out.println(" What would you like to do you options are \n"
                     + "insert, append, delete, jump, sort, print or q to quit");
@@ -52,7 +52,7 @@ public class COSC489_PT_Kdriley0 {
                 nr.sort();
             }
             if (input.compareTo("jump") == 0||input.compareTo("j") == 0) {
-                System.out.println("how many times do you want to rotate");
+                System.out.println("how many times do you want to jump");
                 num = scan.nextInt();
                 if (num > 0) {
                     for (int i = 0; i < num; i++) {

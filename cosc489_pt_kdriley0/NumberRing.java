@@ -58,7 +58,10 @@ public class NumberRing {
     public boolean isEmpty() {
         return size == 0;
     }
-
+/**
+ * my insert method kinda works it skips the second number 
+ * @param n 
+ */
    public void insert(int n) {
         if (size == 0) {
             this.tail = new Node(n, null, null);
@@ -80,28 +83,38 @@ public class NumberRing {
     }
 
     
-
+/**
+ * for some reason add 2 number in the front and the back
+ * @param n 
+ */
     public void Append(int n) {
         this.insert(n);
         tail = tail.getNext();
     }
-
+/**
+ * my delete Method currently the only method that works right
+ * @return 
+ */
     public Node delete() {
         
-        Node head = tail;
-        System.out.println("head "+ head.data);
+        Node head = tail.getNext();
+  //      System.out.println("head "+ head.data);
         if (head == null) {
             return null;
         } else {
             tail = tail.getNext();
             tail.setNext(head.getNext());
             head.getNext().setPre(tail);
-            System.out.println("tail.getN "+ tail.getNext().data);
+          //  System.out.println("tail.getN "+ tail.getNext().data);
             size--;
             
         }
         return head;
     }
+    /**
+     * my sort method take the number ring and puts it into an array then sorts the array and put it back
+     * then rotates it to the right position DOES NOT WORK
+     */
     public void sort(){
         int j=0;
         Node head= tail.getNext();
@@ -155,7 +168,7 @@ public class NumberRing {
              return out;
          }
         Node ref = tail;
-          out+=ref.data+" ";
+         // out+=ref.data+" ";
         
           while(ref.next!= tail){
       //        System.out.println(out);
@@ -175,7 +188,7 @@ public class NumberRing {
     public void rotateBack() {
         if (tail != null)// if empty do nothing
         {
-            tail = tail.getpre();// the old head becomes the tail 
+            tail = tail.getpre();// the old tail becomes the head 
         }
     }
 }
